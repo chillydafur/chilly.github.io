@@ -1,12 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chilly's Galactic Station</title>
+    <style>
+        /* Base Styles and Deep Space Background */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+            color: #E2E8F0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden; /* Keeps the stars from causing scrollbars */
+        }
+
+        /* --- SHOOTING STARS ANIMATION --- */
+        .star {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            height: 2px;
+            background: linear-gradient(-45deg, #5f91ff, rgba(0, 0, 255, 0));
+            filter: drop-shadow(0 0 6px #699bff);
+            animation: tail 3000ms ease-in-out infinite, shooting 3000ms ease-in-out infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes tail {
+            0% { width: 0; }
+            30% { width: 100px; }
+            100% { width: 0; }
+        }
+
+        @keyframes shooting {
+            0% { transform: translateX(0) translateY(0) rotate(0deg); }
+            100% { transform: translateX(600px) translateY(300px) rotate(0deg); }
+        }
+
+        /* Positioning the Stars */
+        .star:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; }
+        .star:nth-child(2) { top: 40%; left: 60%; animation-delay: 1.2s; }
+        .star:nth-child(3) { top: 70%; left: 20%; animation-delay: 2.5s; }
+
+        /* --- THE CENTRAL CARD --- */
+        .card {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(56, 189, 248, 0.4);
+            padding: 3.5rem;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 0 60px rgba(0, 191, 255, 0.15);
+            z-index: 10;
+            max-width: 400px;
+        }
+
+        /* --- NEON GLOW NAME --- */
+        .neon-text {
+            color: #38bdf8;
+            font-size: 3.5rem;
+            margin: 10px 0;
+            font-weight: 800;
+            text-transform: uppercase;
+            animation: pulse-glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse-glow {
+            from {
+                text-shadow: 0 0 10px #38bdf8, 0 0 20px #38bdf8;
+            }
+            to {
+                text-shadow: 0 0 20px #38bdf8, 0 0 40px #0ea5e9, 0 0 60px #0ea5e9;
+                transform: scale(1.05);
+            }
+        }
+
+        /* --- PROFILE IMAGE --- */
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 3px solid #38bdf8;
+            margin-bottom: 20px;
+            object-fit: cover;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+            transition: transform 0.5s ease;
+        }
+
+        .profile-img:hover {
+            transform: rotate(360deg);
+        }
+
+        .subtitle {
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        /* --- BUTTON --- */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            color: #38bdf8;
+            text-decoration: none;
+            border: 2px solid #38bdf8;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #38bdf8;
+            color: #0f172a;
+            box-shadow: 0 0 25px #38bdf8;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
 <body>
+
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+
     <div class="card">
-        <h1>I'm [Your Name]</h1>
-        <p>🚀 Developing cool things with Code.</p>
-        <hr style="border: 0.5px solid #333; margin: 20px 0;">
-        <h3>My Projects</h3>
-        <ul style="list-style: none; padding: 0;">
-            <li><a href="#" style="color: #00ff88;">📁 Project 1</a> - A cool script I wrote.</li>
-            <li><a href="#" style="color: #00ff88;">📁 Project 2</a> - My first web app.</li>
-        </ul>
+        <img src="my-photo.jpg" alt="Chilly" class="profile-img">
+        
+        <h1 class="neon-text">Chilly</h1>
+        <p class="subtitle">DEEP SPACE DEVELOPER</p>
+
+        <a href="https://github.com/chillydafur" class="btn">VIEW PROJECTS</a>
     </div>
+
 </body>
+</html>
